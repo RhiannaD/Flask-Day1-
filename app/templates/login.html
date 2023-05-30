@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+        Login Page
+    {% endblock %}
+
+    {% block content %}
+    <div class="container w-25" id="form-container">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                {{ form.email.label }}
+                {{ form.email (class="form-control") }}
+                <div id="emailHelp" class="form-text">Welcome Players!</div>
+            </div>
+            <div class="mb-3">
+                {{ form.password.label }}
+                {{ form.password (class="form-control") }}
+            </div>
+                {{ form.submit_btn (class="btn-btn-primary") }}
+        </form>
+    </div>
+    {% endblock %}
