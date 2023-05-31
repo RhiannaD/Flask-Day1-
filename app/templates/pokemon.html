@@ -9,18 +9,19 @@
 <form action="/pokemon" method="POST" class="px-3">
     {{ form.hidden_tag() }}
 
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 28rem;">
       {{form.poke_name(size=10)}}
           <div class="form_btn">{{ form.submit_btn }} </div>
-        <img src="{{ poke_dict['image'] }}" class="card-img-top" alt="Your pokemon!">
-          <ul class="list-group list-group-flush">
+       
+          <ul class="list-grouplist-group-flush">
+            <img src="{{ poke_dict['image'] }}" class="card-img-top" alt="Your pokemon!">
             <li class="list-group-item">Ability: {{ poke_dict["ability"] }}</li>
             <li class="list-group-item">HP: {{ poke_dict["hp"] }}</li>
             <li class="list-group-item">Defense: {{ poke_dict["defense"] }}</li>
             <li class="list-group-item">Attack: {{ poke_dict["attack"] }}</li>
           </ul>
-          
-          
+          <span class="dot1">A</span>
+          <span class="dot2">B</span>
       </div>
 </form>
 

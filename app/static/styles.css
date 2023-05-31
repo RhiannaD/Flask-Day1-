@@ -15,33 +15,65 @@
     width: 25px;
 }
 
-.card{
-    padding: 20px;
-    margin:100px 0px 0px 40%;
-    border: solid 10px rgb(176, 176, 84);
-    box-shadow: rgba(71, 70, 32, 0.35) 0px 5px 15px;
-}
-
 .name{
-    font-size: 2rem;
-    margin: 5px;
-    border: 5px;
-    width: 30px;
+  font-size: 2rem;
+  margin: 5px;
+  border: 5px;
+  width: 30px;
 }
 
+.card{
+    padding: 40px;
+    margin:100px 0px 0px 40%;
+    border: solid 10px rgb(6, 6, 5);
+    box-shadow: rgba(71, 70, 32, 0.35) 0px 5px 15px;
+    background-color: teal;
+    
+    
+}
 
 .form_btn{
-    margin: 5px;
+  margin: 5px;
 }
 
-.card-img-top{
-    border: solid 5px rgb(176, 176, 84);
-    box-shadow: rgba(24, 23, 9, 0.35) 0px 5px 15px;
-}
 
+
+.list-grouplist-group-flush{
+  margin: 0px 20px 200px 0px;
+  border: solid 5px rgb(20, 27, 26);
+  box-shadow: rgba(24, 23, 9, 0.35) 0px 5px 15px;
+  background-color: gray;
+  border-radius: 20px;
+
+
+}
 .list-group-item{
     font-weight: bold;
 }
+
+.dot1{
+  height: 45px;
+  width: 45px;
+  background-color: #bb0b0b;
+  border-radius: 50%;
+  border: solid black;
+  display: flex;
+  margin: -70px 20px 60px 300px;
+  padding:6.5px 1px 8px 13px;
+  font-weight:bold;
+}
+.dot2{
+  height: 45px;
+  width: 45px;
+  background-color: #bb0b0b;
+  border-radius: 50%;
+  border: solid black;
+  display: flex;
+  margin: -50px 0px 50px 230px;
+  padding:6.5px 1px 8px 13px;
+  font-weight:bold;
+}
+
 
 nav {
     width: 80%;
