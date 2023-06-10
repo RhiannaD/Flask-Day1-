@@ -19,6 +19,7 @@ class LoginForm(FlaskForm):
 
 class PokeForm(FlaskForm):
     poke_name = StringField('Pokemon_Name', validators=[DataRequired()])
-    submit_btn = SubmitField('Search')
+    submit_btn1 = SubmitField('Search')
+    submit_btn2 = SubmitField('Catch')
 
 

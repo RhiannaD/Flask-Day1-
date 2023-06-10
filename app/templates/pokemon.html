@@ -11,15 +11,18 @@
 
     <div class="card" style="width: 28rem;">
       {{form.poke_name(size=10)}}
-          <div class="form_btn">{{ form.submit_btn }} </div>
-       
+          <div class="form_btn">{{ form.submit_btn1 }} </div>
+          {% if poke_dict %}
+          <a class="btn btn-primary" href="{{ url_for('main.catch',poke_name=poke_dict['name']) }}" role="button">Catch</a>
+
           <ul class="list-grouplist-group-flush">
-            <img src="{{ poke_dict['image'] }}" class="card-img-top" alt="Your pokemon!">
+            <img src= "{{ poke_dict['image'] }}" class= "card-img-top" alt="Your pokemon!">
             <li class="list-group-item">Ability: {{ poke_dict["ability"] }}</li>
             <li class="list-group-item">HP: {{ poke_dict["hp"] }}</li>
             <li class="list-group-item">Defense: {{ poke_dict["defense"] }}</li>
             <li class="list-group-item">Attack: {{ poke_dict["attack"] }}</li>
           </ul>
+          {% endif %}
           <span class="dot1">A</span>
           <span class="dot2">B</span>
       </div>

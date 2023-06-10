@@ -26,13 +26,12 @@
                   <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('main.pokemon')}}">Choose a Pokemon</a>
+                  <a class="nav-link" href="{{ url_for('main.pokemon') }}">Choose a Pokemon</a>
                 </li>
+              
+                
                 <li class="nav-item">
-                  <p class="nav-link">{{ current_user.first_name }}</p>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ url_for('auth.logout')}}">Logout</a>
+                  <a href="{{ url_for('auth.logout') }}">Logout</a>
                 </li>
               {% else %}
                 <li class="nav-item">
