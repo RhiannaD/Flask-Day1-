@@ -65,10 +65,8 @@ def pokemon():
 @main.route('/catch/<poke_name>',methods=['GET','POST'])
 @login_required
 def catch(poke_name):
-        query_poke= Poke.query.filter(Poke.poke_name == poke_name).first()
-        query_user = User.query.get(team)
-     
-        
+
+       
         url= f'https://pokeapi.co/api/v2/pokemon/{poke_name}'
 
         poke = requests.get(url)
@@ -95,36 +93,85 @@ def catch(poke_name):
             except IndexError:
             
                     return "Bad request"
-                
+            query_poke= Poke.query.filter(Poke.poke_name == poke_name).first()
             new_poke = Poke()
             new_poke.from_poke_dict(poke_dict)
-            db.session.add(new_poke)
-            db.session.commit()
+            if poke_name not in query_poke:
+                db.session.add(new_poke)
+                db.session.commit()
+            else:
+                return flash(f'{poke_name} is already caught!')
+                
             
-            if query_user:
-                current_user= User()
-                current_user.catch(new_poke)
 
 
-            if current_user.team == poke_name:
-                 current_user.release(new_poke)
+            # if current_user.team == poke_name:
+            #      current_user.release(new_poke)
                 
                 
            
 
                  
-            return redirect(render_template('profile.html', poke=poke))
+            return redirect(render_template('caught.html', poke=poke))
+
+@main.route('/myteam')
+@login_required
+def myteam():
+     return render_template('caught.html',team=current_user.team.all())
 
 
 
+
+@main.route('/team',methods=['GET','POST'])
+@login_required
+def release(poke_name):
+    query_user = User.query.get(poke_name)
+    new_team=team.query.get(Poke.from_poke_dict)
+    if poke_name in query_user:
+         current_user.release(new_team)
+    else:
+         return "invalid response"
+
+@main.route('/allpoke')
+@login_required
+def allpoke():
+    pokemon= Poke.query.all()
+    return render_template('allpokemon.html', pokemon=pokemon)
+
+@main.route('/getteam/<name>')
+@login_required
+def getteam(name):
+    pokemon= Poke.query.filter_by(poke_name=name).first()
+    if pokemon in current_user.team:
+         return "Already have it"
+    elif current_user.team.count() == 5:
+         return flash("team is full")
+    else:
+        flash("pokemon was added")
+        current_user.catch(pokemon)
+    
+@main.route('/removepoke/<name>')
+@login_required
+def remteam(name):
+    pokemon= Poke.query.filter_by(poke_name=name).first()
+    if pokemon in current_user.team:
+        current_user.release(pokemon)
+        return flash(f'{name} was removed!')
+    else:
+        return render_template('allpokemon.html',pokemon=pokemon)
+        
+     
+     
+     
 
 
 
 # recieve a pokemon name
 # 2. Query your database and see if that pokemon is in there
 # 3. if it is, catch the pokemon current_user.catch(pokemon)
+# 4. else use the pokemons name to hit the api, create an instance of poke
 # using the info
-# 5. then once you've added the pokemon to your database, catch th
+# 5. then once you've added the pokemon to your database, catch the pokemon
                     
 
 

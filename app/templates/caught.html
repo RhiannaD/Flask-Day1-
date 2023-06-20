@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+ Caught Pokemon
+{% endblock %}
+
+{% block content %}
+
+
+{% for poke in team%}
+<a class="btn btn-primary" href="../templates/teams.html" role="button">Add to Team</a>
+<ul class="list-grouplist-group-flush">
+  <img src= "{{ poke.poke_image }}" class= "card-img-top" alt="Your pokemon!">
+  <li class="list-group-item">Ability: {{ poke.poke_ability }}</li>
+  <li class="list-group-item">HP: {{ poke.poke_hp}}</li>
+  <li class="list-group-item">Defense: {{ poke.poke_defense }}</li>
+  <li class="list-group-item">Attack: {{ poke.poke_attack }}</li>
+</ul>
+{% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+
+

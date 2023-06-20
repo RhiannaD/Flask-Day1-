@@ -13,7 +13,7 @@
       {{form.poke_name(size=10)}}
           <div class="form_btn">{{ form.submit_btn1 }} </div>
           {% if poke_dict %}
-          <a class="btn btn-primary" href="{{ url_for('main.catch',poke_name=poke_dict['name']) }}" role="button">Catch</a>
+          <a class="btn btn-primary" href="../templates/caught.html" role="button">Catch</a>
 
           <ul class="list-grouplist-group-flush">
             <img src= "{{ poke_dict['image'] }}" class= "card-img-top" alt="Your pokemon!">
